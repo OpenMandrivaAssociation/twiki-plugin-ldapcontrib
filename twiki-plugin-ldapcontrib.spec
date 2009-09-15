@@ -3,7 +3,7 @@
 
 Name:       twiki-plugin-ldapcontrib
 Version:    2.99.7
-Release:    %mkrel 1
+Release:    %mkrel 2
 Summary:    LDAP services for TWiki
 License:    GPL
 Group:      System/Servers
@@ -35,12 +35,12 @@ rm -rf %{buildroot}
 install -d -m 755 %{buildroot}%{_datadir}/twiki/lib/TWiki
 cp -r lib/TWiki/* %{buildroot}%{_datadir}/twiki/lib/TWiki
 
-install -d -m 755 %{buildroot}%{_localstatedir}/lib/twiki/data/Twiki
+install -d -m 755 %{buildroot}%{_localstatedir}/lib/twiki/data/TWiki
 install -m 644 data/TWiki/LdapContrib.txt \
-    %{buildroot}%{_localstatedir}/lib/twiki/data/Twiki
+    %{buildroot}%{_localstatedir}/lib/twiki/data/TWiki
 
-install -d -m 755 %{buildroot}%{_localstatedir}/lib/twiki/pub/Twiki
-cp -r pub/TWiki/LdapContrib %{buildroot}%{_localstatedir}/lib/twiki/pub/Twiki
+install -d -m 755 %{buildroot}%{_localstatedir}/lib/twiki/pub/TWiki
+cp -r pub/TWiki/LdapContrib %{buildroot}%{_localstatedir}/lib/twiki/pub/TWiki
 
 %clean
 rm -rf %{buildroot}
@@ -48,5 +48,5 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %{_datadir}/twiki/lib/TWiki/*
-%attr(-,apache,apache) %{_localstatedir}/lib/twiki/data/Twiki/*
-%attr(-,apache,apache) %{_localstatedir}/lib/twiki/pub/Twiki/*
+%attr(-,apache,apache) %{_localstatedir}/lib/twiki/data/TWiki/*
+%attr(-,apache,apache) %{_localstatedir}/lib/twiki/pub/TWiki/*
