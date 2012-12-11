@@ -1,17 +1,21 @@
+%if %{_use_internal_dependency_generator}
+%define __noautoprov 'perl\\((.*)\\)'
+%define __noautoreq 'perl\\(TWiki(.*)\\)|perl\\(Assert\\)'
+%else
 %define _provides_exceptions perl(.*)
 %define _requires_exceptions perl(\\(TWiki.*\\|Assert\\))
+%endif
 
-Name:       twiki-plugin-ldapcontrib
-Version:    2.99.7
-Release:    %mkrel 2
-Summary:    LDAP services for TWiki
-License:    GPL
-Group:      System/Servers
-URL:        http://twiki.org/cgi-bin/view/Plugins/LdapContrib
-Source:     http://twiki.org/p/pub/Plugins/LdapContribDev/LdapContrib.zip
-Requires:   twiki
-BuildArch:  noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}
+Name:		twiki-plugin-ldapcontrib
+Version:	2.99.7
+Release:	3
+Summary:	LDAP services for TWiki
+License:	GPL
+Group:		System/Servers
+URL:		http://twiki.org/cgi-bin/view/Plugins/LdapContrib
+Source:		http://twiki.org/p/pub/Plugins/LdapContribDev/LdapContrib.zip
+Requires:	twiki
+BuildArch:	noarch
 
 %description
 This package offers basic LDAP services for TWiki and offers authentication of
@@ -30,8 +34,6 @@ other LDAP applications onto a common base.
 %build
 
 %install
-rm -rf %{buildroot}
-
 install -d -m 755 %{buildroot}%{_datadir}/twiki/lib/TWiki
 cp -r lib/TWiki/* %{buildroot}%{_datadir}/twiki/lib/TWiki
 
@@ -42,11 +44,8 @@ install -m 644 data/TWiki/LdapContrib.txt \
 install -d -m 755 %{buildroot}%{_localstatedir}/lib/twiki/pub/TWiki
 cp -r pub/TWiki/LdapContrib %{buildroot}%{_localstatedir}/lib/twiki/pub/TWiki
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %{_datadir}/twiki/lib/TWiki/*
 %attr(-,apache,apache) %{_localstatedir}/lib/twiki/data/TWiki/*
 %attr(-,apache,apache) %{_localstatedir}/lib/twiki/pub/TWiki/*
+
