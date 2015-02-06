@@ -8,7 +8,7 @@
 
 Name:		twiki-plugin-ldapcontrib
 Version:	2.99.7
-Release:	3
+Release:	4
 Summary:	LDAP services for TWiki
 License:	GPL
 Group:		System/Servers
