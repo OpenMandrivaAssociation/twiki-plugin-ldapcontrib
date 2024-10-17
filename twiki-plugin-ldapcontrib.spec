@@ -12,7 +12,7 @@ Release:	4
 Summary:	LDAP services for TWiki
 License:	GPL
 Group:		System/Servers
-URL:		http://twiki.org/cgi-bin/view/Plugins/LdapContrib
+URL:		https://twiki.org/cgi-bin/view/Plugins/LdapContrib
 Source:		http://twiki.org/p/pub/Plugins/LdapContribDev/LdapContrib.zip
 Requires:	twiki
 BuildArch:	noarch
